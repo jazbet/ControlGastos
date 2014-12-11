@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ControlGastos</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="imgBtnGastos">Agregar Gastos</string>
+    <string name="imgBtnIngresos">Ingresos</string>
+    <string name="imgBtnEstadistica">Estadistica Anual</string>
+    <string name="imgBtnCompras">Compras a Plazos</string>
+    <string name="imgBtnAhorro">Estadistica de Ahorro</string>
+    <string name="title_activity_agregar_gastos">AgregarGastos</string>
+    <string name="title_activity_estadistica_anual">EstadisticaAnual</string>
+    <string name="title_activity_ingresos">Ingresos</string>
+    <string name="title_activity_compras_aplazos">ComprasAPlazos</string>
+    <string name="title_activity_ahorro">Ahorro</string>
+    <string name="efectivo">Disponible Efectivo:</string>
+    <color name="green">#ff45ff34</color>
+
+</resources>

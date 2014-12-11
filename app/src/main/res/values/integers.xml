@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="columns">3</integer>
+    <integer name="rows">4</integer>
+    <integer name="IngresosColumn">1</integer>
+    <integer name="IngresosRow">1</integer>
+    <integer name="Conceptocolumn">0</integer>
+    <integer name="ConceptoRow">0</integer>
+    <integer name="AnualColumn">2</integer>
+    <integer name="AnualRow">0</integer>
+    <integer name="PlazosColumn">0</integer>
+    <integer name="PlazosRow">2</integer>
+    <integer name="AhorroColumn">2</integer>
+    <integer name="AhorroRow">2</integer>
+    <integer name="Totalcolumn">1</integer>
+</resources>

@@ -1,0 +1,96 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".MainMoneyActivity"
+    android:orientation="vertical">
+
+    <GridLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="@integer/columns"
+        android:rowCount="@integer/rows"
+        android:id="@+id/grid"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="100dp">
+
+        <ImageButton
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:id="@+id/imgBtnGastoAnual"
+            android:src="@drawable/gasto_anual2"
+            android:contentDescription="@string/imgBtnGastos"
+            android:layout_column="@integer/AnualColumn"
+            android:layout_row="@integer/AnualRow" />
+
+        <ImageButton
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:id="@+id/imgBtnIngresos"
+            android:src="@drawable/ingresos"
+            android:contentDescription="@string/imgBtnGastos"
+            android:layout_column="@integer/IngresosColumn"
+            android:layout_row="@integer/IngresosRow" />
+
+        <ImageButton
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:id="@+id/imgBtnConcepto"
+            android:src="@drawable/concepto"
+            android:contentDescription="@string/imgBtnGastos"
+            android:labelFor="@id/imgBtnConcepto"
+            android:layout_column="@integer/Conceptocolumn"
+            android:layout_row="@integer/ConceptoRow" />
+
+        <ImageButton
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:id="@+id/imgBtnComprasAPlazos"
+            android:src="@drawable/compras_a_plazos"
+            android:contentDescription="@string/imgBtnGastos"
+            android:layout_column="@integer/PlazosColumn"
+            android:layout_row="@integer/PlazosRow" />
+
+        <ImageButton
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:id="@+id/imgBtnAhorro"
+            android:src="@drawable/ahorro"
+            android:contentDescription="@string/imgBtnGastos"
+            android:layout_column="@integer/AhorroColumn"
+            android:layout_row="@integer/AhorroRow" />
+
+    </GridLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/efectivo"
+        android:id="@+id/txtTituloTotal"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/green"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/grid"
+        android:layout_alignBottom="@+id/grid" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="$300,000"
+        android:id="@+id/txtTotal"
+        android:textColor="#ff1117ff"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/txtTituloTotal" />
+
+</LinearLayout>
