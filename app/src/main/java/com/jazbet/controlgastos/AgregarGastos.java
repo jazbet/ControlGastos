@@ -37,6 +37,7 @@ public class AgregarGastos extends Activity {
                 } catch (Exception e) {
                     e.printStackTrace();
                     Context context = getApplicationContext();
+                    //mensaje desplegado en pantalla
                     Toast toast = Toast.makeText(context, "application Failed!", Toast.LENGTH_LONG);
                     toast.show();
                 }
