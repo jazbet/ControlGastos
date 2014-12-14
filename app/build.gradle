@@ -13,7 +13,9 @@ android {
     }
     buildTypes {
         release {
-            runProguard false
+            apply plugin: 'findbugs'
+            minifyEnabled true
+            //runProguard false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -21,4 +23,5 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    //classpath 'com.android.tools.build:gradle:1.0.+'
 }

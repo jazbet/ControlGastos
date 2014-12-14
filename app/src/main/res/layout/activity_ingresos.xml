@@ -33,22 +33,42 @@
             android:layout_gravity="center_horizontal"
             android:hint="Monto Mensual" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Fecha de Ingreso:"
-            android:id="@+id/lblFecha" />
-
         <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="fill_parent"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <DatePicker
-                android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/datePicker" />
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/lblMes"
+                android:hint="Mes"
+                android:layout_weight="4" />
+
+            <EditText
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/txtMes"
+                android:layout_weight="4" />
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:id="@+id/lblAnio"
+                android:hint="Año"
+                android:layout_weight="4" />
+
+            <EditText
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/txtAnio"
+                android:layout_weight="4" />
         </LinearLayout>
 
         <Button

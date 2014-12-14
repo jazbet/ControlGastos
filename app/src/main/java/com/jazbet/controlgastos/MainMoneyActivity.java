@@ -16,6 +16,8 @@ public class MainMoneyActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_money);
 
+
+        //Creación de los menus
         ImageButton imgBtnGasto = (ImageButton) findViewById(R.id.imgBtnConcepto);
         imgBtnGasto.setOnClickListener(new View.OnClickListener() {
 
@@ -38,7 +40,7 @@ public class MainMoneyActivity extends Activity {
 
         });
 
-        ImageButton imgBtnAhorro = (ImageButton) findViewById(R.id.imgBtnAhorro);
+        /*ImageButton imgBtnAhorro = (ImageButton) findViewById(R.id.imgBtnAhorro);
         imgBtnAhorro.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -69,7 +71,7 @@ public class MainMoneyActivity extends Activity {
                 startActivity(estadistica);
             }
 
-        });
+        });*/
     }
 
 
