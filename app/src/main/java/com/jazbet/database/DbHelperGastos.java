@@ -27,6 +27,17 @@ public class DbHelperGastos extends SQLiteOpenHelper {
             + CN_PLAZOS + " integer, "
             + CN_FECHA + " text not null); ";
 
+    public static final String TABLE_CAPITAL = "capital";
+    //public static final String CN_ID2 = "_id";
+    public static final String CN_MES = "mes";
+    public static final String CN_ANIO = "anio";
+    //public static final String CN_CANTIDAD2 = "cantidad";
+
+    public static final String CREATE_TABLE_CAPITAL = "create table " + TABLE_CAPITAL + " ("
+            + CN_MES + " integer, "
+            + CN_ANIO + " integer, "
+            + CN_CANTIDAD + " real); ";
+
 
     public DbHelperGastos(Context context) {
         super(context, DB_NAME, null, DB_SCHEME_VERSION);
@@ -35,6 +46,7 @@ public class DbHelperGastos extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE_GASTOS);
+        db.execSQL(CREATE_TABLE_CAPITAL);
         //db.execSQL(DataBaseManager.CREATE_TABLE_PLAZOS);
     }
 

@@ -13,7 +13,7 @@ import java.util.Date;
  */
 public class DataBaseManager {
 
-    public static final String TABLE_NAME = "money_data";
+    public static final String TABLE_NAME = "plazos";
 
     public static final String CN_PLAZOS2 = "plazos";
     public static final String CN_ID_GASTO = "id_gasto";

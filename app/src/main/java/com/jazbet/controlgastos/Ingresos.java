@@ -40,11 +40,11 @@ public class Ingresos extends Activity {
                     capitalDS = new CapitalDataSource(context);
                     capitalDS.open();
 
-                    //Verificar que ese ingreso mensual no haya sido insertado antes
+                    /*//Verificar que ese ingreso mensual no haya sido insertado antes
                     Capital verificaIngreso = capitalDS.consultaCapital(Long.parseLong(txtMes.getText().toString()),
                             Long.parseLong(txtAnio.getText().toString()));
                     if(verificaIngreso!= null && verificaIngreso.getCantidad()>0)
-                    {
+                    {*/
                         totReg = capitalDS.insertaIngreso(Long.parseLong(txtMes.getText().toString()),
                                 Long.parseLong(txtAnio.getText().toString()),
                                 Double.parseDouble(txtMonto.getText().toString()));
@@ -58,11 +58,11 @@ public class Ingresos extends Activity {
                             cleanFields();
                         }
 
-                    }
+                    /*}
                     else{
                         Toast toast = Toast.makeText(context, "ya ha sido registrado el ingreso de ese mes", Toast.LENGTH_LONG);
                         toast.show();
-                    }
+                    }*/
 
 
 

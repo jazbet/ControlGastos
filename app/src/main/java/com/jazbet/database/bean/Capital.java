@@ -5,18 +5,9 @@ package com.jazbet.database.bean;
  */
 
 public class Capital {
-    private long id;
     private long mes;
     private long anio;
     private double cantidad;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public long getMes() {
         return mes;
