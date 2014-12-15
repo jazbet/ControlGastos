@@ -1,21 +1,26 @@
 package com.jazbet.controlgastos;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
-import com.jazbet.database.DataBaseManager;
+import android.widget.Toast;
+import com.jazbet.database.bean.Capital;
+import com.jazbet.database.dao.CapitalDataSource;
 
 
 public class Ingresos extends Activity {
 
+    private static final String TAG = "AgregarIngresos";
     private EditText txtMonto;
     private EditText txtMes;
     private EditText txtAnio;
+    private CapitalDataSource capitalDS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +34,48 @@ public class Ingresos extends Activity {
         btnIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                agregarIngresos();
+                try {
+                    Context context = getApplicationContext();
+                    long totReg = 0;
+                    capitalDS = new CapitalDataSource(context);
+                    capitalDS.open();
+
+                    //Verificar que ese ingreso mensual no haya sido insertado antes
+                    Capital verificaIngreso = capitalDS.consultaCapital(Long.parseLong(txtMes.getText().toString()),
+                            Long.parseLong(txtAnio.getText().toString()));
+                    if(verificaIngreso!= null && verificaIngreso.getCantidad()>0)
+                    {
+                        totReg = capitalDS.insertaIngreso(Long.parseLong(txtMes.getText().toString()),
+                                Long.parseLong(txtAnio.getText().toString()),
+                                Double.parseDouble(txtMonto.getText().toString()));
+
+                        if(totReg < 1){
+                            Toast toast = Toast.makeText(context, "no fue posible insertar el registro", Toast.LENGTH_LONG);
+                            toast.show();
+                        } else {
+                            Toast toast = Toast.makeText(context, "registro insertado exitosamente", Toast.LENGTH_LONG);
+                            toast.show();
+                            cleanFields();
+                        }
+
+                    }
+                    else{
+                        Toast toast = Toast.makeText(context, "ya ha sido registrado el ingreso de ese mes", Toast.LENGTH_LONG);
+                        toast.show();
+                    }
+
+
+
+                } catch (Exception e) {
+                    Log.e(TAG, e.getMessage());
+                    e.printStackTrace();
+
+                    Context context = getApplicationContext();
+                    Toast toast = Toast.makeText(context, "Ocurrió un fallo en la aplicación!", Toast.LENGTH_LONG);
+                    toast.show();
+                } finally {
+                    capitalDS.close();
+                }
             }
         });
     }
@@ -57,8 +103,10 @@ public class Ingresos extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void agregarIngresos(){
-        DataBaseManager dbMngr = new DataBaseManager(this);
-        dbMngr.insertarCapital(Integer.getInteger(txtMes.toString()), Long.getLong(txtAnio.toString()),Double.parseDouble(txtMonto.toString()));
+    //internal functions
+    private void cleanFields(){
+        txtMonto.setText("");
+        txtMes.setText("");
+        txtAnio.setText("");
     }
 }
