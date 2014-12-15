@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.jazbet.database.DataBaseManager;
+
 
 public class Ingresos extends Activity {
 
@@ -57,6 +59,6 @@ public class Ingresos extends Activity {
 
     private void agregarIngresos(){
         DataBaseManager dbMngr = new DataBaseManager(this);
-        dbMngr.insertarCapital(Integer.getInteger(txtMes.toString()), Integer.getInteger(txtAnio.toString()),Float.parseFloat(txtMonto.toString()));
+        dbMngr.insertarCapital(Integer.getInteger(txtMes.toString()), Long.getLong(txtAnio.toString()),Double.parseDouble(txtMonto.toString()));
     }
 }

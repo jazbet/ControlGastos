@@ -34,7 +34,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberSigned"
+            android:inputType="numberDecimal"
             android:ems="10"
             android:id="@+id/txtCantidad"
             android:layout_gravity="center_horizontal"
