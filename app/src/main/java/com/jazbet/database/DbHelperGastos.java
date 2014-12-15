@@ -10,7 +10,7 @@ import android.util.Log;
  */
 public class DbHelperGastos extends SQLiteOpenHelper {
 
-    private static final String DB_NAME = "control_gastos.db";
+    private static final String DB_NAME = "control_gastos2.db";
     private static final int DB_SCHEME_VERSION = 1;
 
     public static final String TABLE_NAME = "gastos";
@@ -28,15 +28,15 @@ public class DbHelperGastos extends SQLiteOpenHelper {
             + CN_FECHA + " text not null); ";
 
     public static final String TABLE_CAPITAL = "capital";
-    //public static final String CN_ID2 = "_id";
     public static final String CN_MES = "mes";
     public static final String CN_ANIO = "anio";
     //public static final String CN_CANTIDAD2 = "cantidad";
 
     public static final String CREATE_TABLE_CAPITAL = "create table " + TABLE_CAPITAL + " ("
-            + CN_MES + " integer, "
-            + CN_ANIO + " integer, "
-            + CN_CANTIDAD + " real); ";
+            + CN_MES + " integer not null, "
+            + CN_ANIO + " integer not null, "
+            + CN_CANTIDAD + " real," +
+            " PRIMARY KEY (" + CN_MES + ", " + CN_ANIO + ")); ";
 
 
     public DbHelperGastos(Context context) {
@@ -45,8 +45,10 @@ public class DbHelperGastos extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(CREATE_TABLE_GASTOS);
+        Log.w(DbHelperGastos.class.getName(),"Capital table = " + CREATE_TABLE_CAPITAL);
         db.execSQL(CREATE_TABLE_CAPITAL);
+        Log.w(DbHelperGastos.class.getName(),"Capital table creada!!");
+        db.execSQL(CREATE_TABLE_GASTOS);
         //db.execSQL(DataBaseManager.CREATE_TABLE_PLAZOS);
     }
 

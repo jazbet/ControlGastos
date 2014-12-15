@@ -1,15 +1,24 @@
 package com.jazbet.controlgastos;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.jazbet.database.bean.Capital;
+import com.jazbet.database.dao.CapitalDataSource;
 
 
 public class MainMoneyActivity extends Activity {
+    private static final String TAG = "Menu";
+    private CapitalDataSource capitalDS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +48,28 @@ public class MainMoneyActivity extends Activity {
             }
 
         });
+
+        TextView txtTotal = (TextView) findViewById(R.id.txtTotal);
+        try {
+                capitalDS = new CapitalDataSource(this);
+                capitalDS.open();
+
+                //Verificar que ese ingreso mensual no haya sido insertado antes
+                Capital verificaIngreso = capitalDS.consultaTotal();
+                Log.w(Ingresos.class.getName(), "Cantidad = " + verificaIngreso.getCantidad());
+            String tot = String.valueOf(verificaIngreso.getCantidad());
+                txtTotal.setText(tot);
+
+        } catch (Exception e) {
+            Log.e(TAG, e.getMessage());
+            e.printStackTrace();
+
+            Context context = getApplicationContext();
+            Toast toast = Toast.makeText(context, "Ocurrió un fallo en la aplicación!", Toast.LENGTH_LONG);
+            toast.show();
+        } finally {
+            capitalDS.close();
+        }
 
         /*ImageButton imgBtnAhorro = (ImageButton) findViewById(R.id.imgBtnAhorro);
         imgBtnAhorro.setOnClickListener(new View.OnClickListener() {
@@ -96,4 +127,5 @@ public class MainMoneyActivity extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
